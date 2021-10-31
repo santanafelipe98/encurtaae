@@ -259,6 +259,14 @@ a.active {
     flex-grow: 1;
 }
 
+#detect {
+    height: 1px;
+    width: 1px;
+    position: absolute;
+    left: -999em;
+    top: -999em;
+}
+
 .shortener-form {
     display: flex;
     flex-direction: column;
@@ -659,6 +667,10 @@ a.active {
     .img-page-banner {
         width: 300px;
     }
+
+    .adsense {
+        width: 100%;
+    }
 }
 
 @media screen and (max-width: 767.98px) {
@@ -668,6 +680,10 @@ a.active {
 
     #menu {
         display: none;
+    }
+
+    .adsense {
+        width: 70%;
     }
 
     .btn-drawer-toggle {
@@ -688,16 +704,28 @@ a.active {
     .shortener-form {
         width: 500px;
     }
+
+    .adsense {
+        width: 60%;
+    }
 }
 
 @media screen and (min-width: 1200px) {
     .shortener-form {
         width: 600px;
     }
+
+    .adsense {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width: 1400px) {
     .img-page-banner {
         width: 450px;
+    }
+
+    .adsense {
+        width: 60%;
     }
 }

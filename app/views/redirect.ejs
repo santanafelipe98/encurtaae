@@ -32,22 +32,43 @@
     <body>
         <%- include('./includes/header') %>
         <main class="container container-centered">
-
-            <div id="counter">
-                <h2 id="message" class="c-white txt-lg">Aguarde...</h2>
-                <div id="remaining_time" class="txt-xl txt-strong txt-center mt-1 c-white"></div>
+            <div id="detect" class="ads ad adsbox doubleclick ad-placement carbon-ad"></div>
+            <div id="adsense_container" class="adsense">
+                <!-- redirecionador topo -->
+                <ins class="adsbygoogle"
+                    style="display:block;background:#ccc"
+                    data-ad-client="ca-pub-7353616832067160"
+                    data-ad-slot="7460111136"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
             </div>
 
-            <div id="original_url" class="mt-2 c-white"></div>
+            <div id="result_container" class="container-centered">
+                <div id="counter" class="mt-1">
+                    <h2 id="message" class="c-white txt-lg">Aguarde...</h2>
+                    <div id="remaining_time" class="txt-xl txt-strong txt-center mt-1 c-white"></div>
+                </div>
+    
+                <div id="original_url" class="mt-2 c-white"></div>
+    
+                <button
+                    type="button"
+                    disabled
+                    id="btn_access_url"
+                    class="btn btn-primary btn-wd-lg mt-3 hidden"
+                    value="<%= data.originalURLBase64 %>">
+                    Acessar
+                </button>
+            </div>
 
-            <button
-                type="button"
-                disabled
-                id="btn_access_url"
-                class="btn btn-primary btn-wd-lg mt-3 hidden"
-                value="<%= data.originalURLBase64 %>">
-                Acessar
-            </button>
+            <div id="adblock_advice" class="container-centered hidden">
+                <img src="images/ad_blocker.png" alt="Ícone Anti-AdBlock">
+                <small class="mt-1"><div>Icon made by <a href="https://www.freepik.com" title="Freepik">Freepik</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div></small>
+                <h1 class="c-white txt-center mt-3">Por favor, desative o AdBlock e recarregue a página.</h1>
+            </div>
         </main>
         <%- include('includes/footer') %>
         <script src="js/redirect.js"></script>
@@ -60,5 +81,7 @@
 
             gtag('config', 'G-FWTR45M64G');
         </script>
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7353616832067160"
+            crossorigin="anonymous"></script>
     </body>
 </html>

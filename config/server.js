@@ -21,12 +21,8 @@ app.use(express.json());
 
 // cors
 
-const corsOptions = {
-    origin: 'http://localhost/',
-    optionsSuccessStatus: 200
-};
-
-app.use(cors(corsOptions));
+app.use(cors());
+app.options('*', cors());
 
 consign({ cwd: process.cwd() + '/app' })
     .include('routes')

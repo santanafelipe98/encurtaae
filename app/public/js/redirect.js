@@ -1,25 +1,40 @@
-const remainingTimeEl = document.getElementById('remaining_time');
-const originalURLEl   = document.getElementById('original_url');
-const btnAccessURL    = document.getElementById('btn_access_url');
-const messageEl       = document.getElementById('message');
+const remainingTimeEl  = document.getElementById('remaining_time');
+const resultContainer  = document.getElementById('result_container');
+const adblockAdvice    = document.getElementById('adblock_advice');
+const originalURLEl    = document.getElementById('original_url');
+const btnAccessURL     = document.getElementById('btn_access_url');
+const messageEl        = document.getElementById('message');
 
 let counter = 5;
 
-const timer = setInterval(() => {
-    if (counter === 0) {
-        remainingTimeEl.classList.add('hidden');
-        messageEl.innerHTML = 'Tudo pronto!';
+if (isAdBlockRunning()) {
+    resultContainer.remove();
+    adblockAdvice.classList.remove('hidden');
+} else {
+    const timer = setInterval(() => {
+        if (counter === 0) {
+            remainingTimeEl.classList.add('hidden');
+            messageEl.innerHTML = 'Tudo pronto!';
+    
+            showURLNAccessButton();
+            clearInterval(timer);
+        }
+    
+        remainingTimeEl.innerHTML = `${counter} s`;
+    
+        counter--;
+    }, 1000);
+}
 
-        showURLNAccessButton();
-        clearInterval(timer);
-    }
-
-    remainingTimeEl.innerHTML = `${counter} s`;
-
-    counter--;
-}, 1000);
 
 btnAccessURL.addEventListener('click', accessURL);
+
+function isAdBlockRunning() {
+    let detectionEl = document.getElementById('detect');
+    let styles = getComputedStyle(detectionEl);
+    
+    return styles.display == 'none';
+}
 
 function showURLNAccessButton() {
     let originalURL = decodeURIComponent(atob(btnAccessURL.value));
