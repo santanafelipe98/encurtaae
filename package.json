@@ -1,0 +1,24 @@
+{
+  "name": "encurta.ae",
+  "version": "1.0.0",
+  "description": "Encurtador de URLs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "keywords": [
+    "encurtador",
+    "url"
+  ],
+  "author": "Felipe Santana",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.24.0",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-validator": "^6.13.0",
+    "mongoose": "^6.0.12"
+  }
+}

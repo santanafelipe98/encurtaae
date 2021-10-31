@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="index,nofollow">
+        <meta name="description" content="Encurte URLs de forma descomplicada">
+        <meta name="keywords" content="encurtador, url, url curta, link, encurtar url, encurtar link, encurtador gratis, encurtaae">
+        <meta name="author" content="Felipe Santana">
+        <meta name="copyright" content="© 2021 Encurta.ae">
+        <link rel="apple-touch-icon" sizes="57x57" href="images/apple-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="images/apple-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="images/apple-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="images/apple-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="images/apple-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="images/apple-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="images/apple-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="images/apple-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="images/apple-icon-180x180.png">
+        <link rel="icon" type="image/png" sizes="192x192"  href="images/android-icon-192x192.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96x96.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16x16.png">
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-TileImage" content="images/ms-icon-144x144.png">
+        <meta name="theme-color" content="#ffffff">
+        <title>Encurta.ae - Encurte URLs de forma descomplicada</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="css/style.css">
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    </head>
+    <body>
+        <%- include('./includes/header') %>
+        <main class="container container-centered">
+            <img class="img-page-banner" src="images/people_holding_web.png" alt="Pessoas segurando a web">
+
+            <small><a href='https://www.freepik.com/vectors/background'>Background vector created by rawpixel.com - www.freepik.com</a></small>
+
+            <h1 class="c-white">Encurte URLs de forma descomplicada</h1>
+
+            <div class="shortener-form mt-5">
+                <div class="input-group">
+                    <input type="text" class="input-control" placeholder="Digite ou cole a URL aqui" id="original_url">
+                    
+                    <div class="custom-select ml-1">
+                        <select name="expiration_time" id="expiration_time">
+                            <option value="-1">expira em</option>
+                            <% for (option of options) {  %>
+                                <option value="<%= option.value %>"><%= option.label %></option>
+                            <% } %>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="g-recaptcha mt-1" data-sitekey="6LfPtAYdAAAAAK_RZPkAHGcgdEDUYD_aHTFWgyJn"></div>
+
+                <div id="feedback_message" class="alert hidden mt-1"></div> <!-- Mensagem de feedback -->
+
+                <div id="short_url" class="url-container hidden mt-1"></div> <!-- Container da URL -->
+
+                <button type="button" id="btn_shorten" class="btn btn-primary mt-1">
+                    <i class="fas fa-link mr-1"></i>
+                    Encurtar
+                </button>
+
+                <div id="loading_spinner" class="mt-1 hidden">
+                    <img src="images/loading_spinner.gif" alt="Carregando">
+                </div>
+            </div>
+        </main>
+        <%- include('includes/footer') %>
+        <script src="js/drawer.js"></script>
+        <script src="js/custom_select.js"></script>
+        <script src="js/api.js"></script>
+        <script src="js/index.js"></script>
+    </body>
+</html>
