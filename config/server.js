@@ -28,11 +28,11 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
-consign()
-    .include('app/routes')
-    .then('app/models')
-    .then('app/controllers')
-    .then('app/utils')
+consign({ cwd: process.cwd() + '/app' })
+    .include('routes')
+    .then('models')
+    .then('controllers')
+    .then('utils')
     .into(app);
 
 

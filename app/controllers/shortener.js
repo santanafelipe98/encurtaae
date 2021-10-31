@@ -17,7 +17,7 @@ module.exports.redirect = (application, req, res) => {
     const shortURLId = req.params.shortURLId;
 
     // Realiza consulta ao banco de dados
-    const ShortURL = application.app.models.ShortURL;
+    const ShortURL = application.models.ShortURL;
     ShortURL.findById(shortURLId, (err, shortURL) => {
         if (!err) {
             if (shortURL) {
@@ -49,11 +49,11 @@ module.exports.shorten = (application, req, res) => {
 
                     // Verfica se a CAPTCHA é válida
                     if (data.success) {
-                        const _id    = application.app.utils.identifier.unique();
+                        const _id    = application.utils.identifier.unique();
                         const now    = new Date();
-                        let expireAt = new Date(now.getTime() + application.app.utils.time.parse(expirationTime));
+                        let expireAt = new Date(now.getTime() + application.utils.time.parse(expirationTime));
 
-                        let ShortURL = application.app.models.ShortURL;
+                        let ShortURL = application.models.ShortURL;
 
                         // Cria uma nova URL encurtada
                         ShortURL.create({
