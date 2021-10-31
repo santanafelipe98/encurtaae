@@ -40,14 +40,12 @@
 
             <div id="original_url" class="mt-2 c-white"></div>
 
-            <% let base64 = btoa(encodeURIComponent(data.originalURL)); %>
-
             <button
                 type="button"
                 disabled
                 id="btn_access_url"
                 class="btn btn-primary btn-wd-lg mt-3 hidden"
-                value="<%= base64 %>">
+                value="<%= data.originalURLBase64 %>">
                 Acessar
             </button>
         </main>

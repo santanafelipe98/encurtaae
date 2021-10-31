@@ -21,7 +21,11 @@ module.exports.redirect = (application, req, res) => {
     ShortURL.findById(shortURLId, (err, shortURL) => {
         if (!err) {
             if (shortURL) {
-                res.render('redirect', { data: shortURL });
+                let originalURLBase64 = 
+                    Buffer.from(encodeURIComponent(shortURL.originalURL))
+                        .toString('base64');
+
+                res.render('redirect', { data: { ...shortURL, originalURLBase64 } });
             } else {
                 res.render('404');
             }
