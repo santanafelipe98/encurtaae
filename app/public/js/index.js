@@ -22,12 +22,13 @@ function showShortURL(shortURL) {
     shortURLEl.classList.add('fadein');
 
     let href = location.href;
-    let fullURL = href.substr(0, href.length - 1) + shortURL; 
+    let fullURL = href.substr(0, href.length - 1) + shortURL;
+
 
     shortURLEl.innerHTML = 
     `
         <a class="txt-lg txt-strong" href="${shortURL}">
-            ${fullURL}
+            encurtaae${shortURL}
         </a>
         <textarea id="short_url_text" class="hidden" value="${fullURL}">${fullURL}</textarea>
         <div class="tooltip">
