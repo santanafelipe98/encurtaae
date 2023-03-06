@@ -6,9 +6,12 @@ const cors = require('cors');
 
 // conecta ao banco
 
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/encurtaae';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://127.0.0.1/encurtaae';
 
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true });
+mongoose.connect(MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
 
 // configura engine de views
 
@@ -24,7 +27,7 @@ app.use(express.json());
 app.use(cors());
 app.options('*', cors());
 
-consign({ cwd: process.cwd() + '/app' })
+consign({ cwd: 'app' })
     .include('routes')
     .then('models')
     .then('controllers')
